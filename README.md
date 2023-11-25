@@ -4,11 +4,14 @@ With Firebase Authentication and Hosting.
 
 ## Getting Started
 
+create a folder called "out" within the root of your directory
+
 ```bash
 npm install
 firebase login
 firebase init
 ```
+Choose the first hosting option you see
 
 Follow this guide
 ![Image](/.github/images/Screenshot%202023-11-25%20011008.png)
