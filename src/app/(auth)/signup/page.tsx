@@ -17,8 +17,11 @@ import AuthContainer from "@/components/auth/AuthContainer"
 import { NextPage } from "next"
 import { FormSubmit as FormButton } from "@/components/form/form-submit"
 import { signUpWithEmailPassword } from "@/utils"
+import { useState } from "react"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const SignUp: NextPage = () => {
+  const [capVal, setCapVal] = useState<string | null>(null);
   const form = useForm<TSignUpSchema>({
     resolver: zodResolver(signUpSchema),
   });
@@ -71,7 +74,17 @@ const SignUp: NextPage = () => {
                     </FormItem>
                   )}
                 />
-                <FormButton disabled={form.formState.isSubmitting}>Sign Up</FormButton>
+                <ReCAPTCHA
+                  className={`w-full flex items-center justify-center`}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                  onChange={(val: string | null) => {setCapVal(val)}}
+                />
+                <FormButton
+                  className={`w-full`}
+                  disabled={form.formState.isSubmitting && !capVal}
+                >
+                  Sign Up
+                </FormButton>
               </form>
             </Form>
           </>

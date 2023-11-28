@@ -50,6 +50,7 @@ export const signInWithEmailPassword = async (data: TSignInSchema) => {
 
 export const onLogout = async () => {
   try {
+    "use server"
     await signOut(auth);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     toast.success("Logged out successfully! 🎊");

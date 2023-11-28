@@ -8,7 +8,6 @@ declare global {
       NEXT_PUBLIC_MESSAGINGSENDERID: string,
       NEXT_PUBLIC_APPID: string,
       NEXT_PUBLIC_RECAPTCHA_SITE_KEY: string,
-      NEXT_PUBLIC_RECAPTCHA_SECRET_KEY: string
     }
   }
 }

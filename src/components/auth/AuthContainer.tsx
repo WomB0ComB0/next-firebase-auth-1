@@ -1,13 +1,4 @@
 import React from 'react'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
 
 import { Article, Div } from '../template/index'
 import { Logo } from '../logo'
@@ -18,17 +9,13 @@ import { FormSubmit } from '../form/form-submit'
 const AuthContainer = ({ cardContent, title, buttonText }: { cardContent: React.ReactNode, title: AuthTitle, buttonText: string}) => {
   return (
     <Card
-      className={''}
+      className={'w-2/6 flex flex-col justify-between items-center'}
       logo={true}
+      customLogo={
+        <Logo ImageClassName={``} ContainerClassName={``} height={80} width={80}/>
+      }
       title={title}
       cardContent={cardContent}
-      footerContent={
-        <>
-          <FormSubmit>
-            {buttonText}
-          </FormSubmit>
-        </>
-      }
     />
   )
 }

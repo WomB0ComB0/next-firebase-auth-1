@@ -11,7 +11,7 @@ import {
 import { useContext, ElementRef, useRef } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import { Button } from "@/components/ui/button";
-import { NavItems } from "@/components/constants";
+import { NavItems } from "@/components/NavItems";
 
 export const CustomPopover = ({
   children,
@@ -28,21 +28,18 @@ export const CustomPopover = ({
       </PopoverTrigger>
       <PopoverContent
         align={align}
-        className="w-80 pt-3"
+        className="w-44 pt-3 mt-4 mr-2"
         side={side}
         sideOffset={sideOffset}
       >
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
-          {user.name}
-        </div>
-        <PopoverClose ref={closeRef} asChild>
+        {/* <PopoverClose ref={closeRef} asChild>
           <Button
             className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
             variant="ghost"
           >
             <X className="h-4 w-4" />
           </Button>
-        </PopoverClose>
+        </PopoverClose> */}
         <>
           <NavItems />
         </>

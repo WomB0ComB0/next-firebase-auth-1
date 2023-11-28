@@ -18,9 +18,12 @@ import { TSignInSchema, signInSchema } from "@/lib/auth"
 
 import { onLogin, signInWithEmailPassword } from "@/utils"
 
+import ReCAPTCHA from 'react-google-recaptcha'
 import { CustomButton } from "@/components/custom/Button"
+import { useState } from "react"
 
 const Login: NextPage = () => {
+const [capVal, setCapVal] = useState<string | null>(null);
   const form = useForm<TSignInSchema>({
     resolver: zodResolver(signInSchema),
   });
@@ -60,7 +63,18 @@ const Login: NextPage = () => {
                     </FormItem>
                   )}
                 />
-                <CustomButton disabled={form.formState.isSubmitting} onClick={onLogin}>Login with Google</CustomButton>
+                <ReCAPTCHA
+                  className={`w-full flex items-center justify-center rounded-md h-fit`}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                  onChange={(val: string | null) => {setCapVal(val)}}
+                />
+                <CustomButton
+                  disabled={form.formState.isSubmitting && !capVal}
+                  onClick={onLogin}
+                  className={`w-full`}
+                >
+                  Login with Google
+                </CustomButton>
               </form>
             </Form>
           </>

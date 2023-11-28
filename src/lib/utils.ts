@@ -9,7 +9,7 @@ export function constructMetadata({
   title = "next-firebase",
   description = "Next.js + Firebase starter kit",
   image = '/thumbnail.png',
-  icons = '/favicon.ico',
+  icons = '/assets/svgs/logo.svg',
   noIndex = false,
 }: {
   title?: string

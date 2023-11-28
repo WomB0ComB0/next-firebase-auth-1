@@ -1,4 +1,4 @@
-import { FC } from 'react' 
+import { FC } from 'react'
 import {
   Card,
   CardContent,
@@ -10,11 +10,15 @@ import {
 import { Logo } from "../logo"
 import { cn } from '@/lib/utils'
 
-export const CustomCard: FC<CustomCardProps> = ({ cardContent, title, description, footerContent, logo, className }) => {
+export const CustomCard: FC<CustomCardProps> = ({ cardContent, title, description, footerContent, logo, customLogo, className }) => {
   return (
-    <Card className={cn('', className)}>
+    <Card className={cn('flex flex-col items-center justify-center h-fit', className)}>
       <CardHeader className={`text-center`}>
-        {logo ? (<Logo />) : (null)}
+        {customLogo ? (
+          customLogo
+        ) : (
+          logo ? <Logo ImageClassName={`w-40 h-40`} ContainerClassName={``} /> : null
+        )}
         {title ? (<CardTitle>{title}</CardTitle>) : (null)}
         {description ? (
           <CardDescription>
@@ -22,7 +26,7 @@ export const CustomCard: FC<CustomCardProps> = ({ cardContent, title, descriptio
           </CardDescription>) : (null)}
       </CardHeader>
       {cardContent ? (
-        <CardContent>
+        <CardContent className={`w-full`}>
           {cardContent}
         </CardContent>) : (null)}
       {footerContent ? (

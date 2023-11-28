@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
-import { NavItems } from "@/components/constants";
+import { NavItems } from "@/components/NavItems";
 
 interface NavItemProps {
   isExpanded: boolean;
@@ -50,7 +50,7 @@ export const NavItem = ({
             <Image
               fill
               src={user.avatar}
-              alt="Organization"
+              alt="User avatar"
               className="rounded-sm object-cover"
             />
           </Div>

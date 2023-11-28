@@ -3,7 +3,7 @@ import { MotionArticle } from '@/components/constants/Motion';
 import { SemanticProps } from '@/types/semantic-props';
 import { cn } from '@/lib/utils';
 
-function Article({ framer, children, className, style, framerProps, attributes, key }: SemanticProps) {
+function Article({ framer, children, className = 'pre-wrap break-words', style, framerProps, attributes, key }: SemanticProps) {
   type SectionMotionProps = typeof MotionArticle extends React.FC<infer P> ? P : never;
   return (
     <>
