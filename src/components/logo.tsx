@@ -10,9 +10,9 @@ export const Logo: React.FC<LogoProps> = ({ name, ContainerClassName, height = 1
         <Image
           src="/assets/images/logo.png"
           alt="Logo"
-          height={height || 30}
-          width={width || 30}
-          className={cn('', ImageClassName)}
+          height={height || 40}
+          width={width || 40}
+          className={cn('rounded-full object-cover', ImageClassName)}
         />
         {name ? (
           <p className={cn(

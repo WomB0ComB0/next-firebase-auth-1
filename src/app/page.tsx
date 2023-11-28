@@ -1,15 +1,15 @@
 "use client"
-import { NextPage } from "next";
 import { Hero } from "@/components/layout/index";
 import React from 'react'
 import { Article, Section, Picture } from "@/components/template/index";
 import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import Image from "next/image";
-export const Landing: NextPage = () => {
+import { MaxWidthWrapper } from "@/components/wrapper";
+export default function Landing () {
   const { user } = useContext(UserContext)
   return (
-    <>
+    <MaxWidthWrapper>
       <Hero />
       <Section
         className={`
@@ -30,6 +30,6 @@ export const Landing: NextPage = () => {
           <p className='text-2xl'>Email: {user?.email}</p>
         </Article>
       </Section>
-    </>
+    </MaxWidthWrapper>
   )
 }

@@ -27,10 +27,10 @@ const Login: NextPage = () => {
 
   return (
     <>
-      {/* <AuthContainer
+      <AuthContainer
         title={`Sign In`}
         buttonText="SignIn"
-        cardContent={ */}
+        cardContent={
           <>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(signInWithEmailPassword)} className="space-y-8">
@@ -64,9 +64,8 @@ const Login: NextPage = () => {
               </form>
             </Form>
           </>
-        {/* } /> */}
+      } />
     </>
   )
 }
-
 export default Login

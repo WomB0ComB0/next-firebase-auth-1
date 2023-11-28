@@ -1,6 +1,6 @@
 "use client"
 import { useContext } from 'react';
-import { toast } from 'sonner'; // Adjust this import based on your actual toast library
+import { toast } from 'sonner';
 import { UserContext } from '@/contexts/UserContext';
 import { auth } from '@/firebase/config';
 import { GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
@@ -39,7 +39,6 @@ export const signUpWithEmailPassword = async (data: TSignUpSchema) => {
   }
 };
 
-// Modify signInWithEmailPassword to accept form data
 export const signInWithEmailPassword = async (data: TSignInSchema) => {
   try {
     await signInWithEmailAndPassword(auth, data.email, data.password);
