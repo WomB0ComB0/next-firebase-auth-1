@@ -8,9 +8,9 @@ import Image from "next/image";
 import { MaxWidthWrapper } from "@/components/wrapper";
 import { CustomCard } from "@/components/custom/Card";
 import { CustomButton } from "@/components/custom/Button";
-import { onLogin, onLogout } from "@/utils";
+
 export default function Landing() {
-  const { user } = useContext(UserContext)
+  const { user, onLogin, onLogout } = useContext(UserContext)
   return (
     <MaxWidthWrapper>
       <Hero />

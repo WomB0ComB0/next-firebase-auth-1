@@ -11,7 +11,7 @@ import {
 import { useContext, ElementRef, useRef } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import { Button } from "@/components/ui/button";
-import { NavItems } from "@/components/NavItems";
+import { AuthItems, NavItems } from "@/components/NavItems";
 
 export const CustomPopover = ({
   children,
@@ -42,6 +42,7 @@ export const CustomPopover = ({
         </PopoverClose> */}
         <>
           <NavItems />
+          <AuthItems />
         </>
       </PopoverContent>
     </Popover>

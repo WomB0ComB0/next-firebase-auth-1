@@ -12,10 +12,18 @@ export function UserAvatar() {
   const { user } = useContext(UserContext)
   return (
     <CustomPopover side="bottom" >
-      <Avatar>
-        <AvatarImage src={user.avatar || `https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115`} alt={`${user.name}`} />
+      <Avatar
+        className={`
+          cursor-pointer
+          relative
+          flex
+          items-center
+          justify-center
+        `}
+      >
+        <AvatarImage src={user ? user.avatar : `/assets/images/NoImage.jpg`} alt={`${user.name}`} />
         <AvatarFallback>
-          {user.name.charAt(0)}
+          {user.name ? user.name.charAt(0): user.email.charAt(0)}
         </AvatarFallback>
       </Avatar>
     </CustomPopover>

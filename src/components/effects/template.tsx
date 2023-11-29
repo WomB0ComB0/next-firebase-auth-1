@@ -42,9 +42,17 @@ export default function Template({ children }: { children: React.ReactNode }) {
         animate="enter"
         transition={transition}
         key={pathname}
+        style={{
+          position: "fixed",
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1,
+        }}
       >
         <MotionDiv
-          style={{ position: "fixed", top: 0, bottom: 0, left: 0, right: 0, zIndex: -1 }}
+          style={{ position: "fixed", top: 0, bottom: 0, left: 0, right: 0, zIndex: 1 }}
           variants={blurVariants}
           initial="hidden"
           animate="enter"

@@ -9,6 +9,8 @@ type User = {
 interface UserContextInterface {
   user: User
   setUser: React.Dispatch<React.SetStateAction<User>>
+  onLogout: () => Promise<void>;
+  onLogin: () => Promise<void>;
 }
 
 type UserProviderProps = {
@@ -23,7 +25,7 @@ interface FormSubmitProps {
 };
 
 interface CustomButtonProps extends FormSubmitProps {
-  onClick?: () => void;
+  onClick?: () => void | Promise<void>;
   type?: "button" | "submit" | "reset";
 }
 

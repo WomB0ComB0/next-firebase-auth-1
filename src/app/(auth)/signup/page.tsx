@@ -15,17 +15,33 @@ import { Input } from "@/components/ui/input"
 import { TSignUpSchema, signUpSchema } from "@/lib/auth"
 import AuthContainer from "@/components/auth/AuthContainer"
 import { NextPage } from "next"
-import { FormSubmit as FormButton } from "@/components/form/form-submit"
-import { signUpWithEmailPassword } from "@/utils"
+import { useSignUpWithEmailPassword } from "@/utils"
 import { useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
+import Link from "next/link"
+import { CustomButton } from "@/components/custom/Button"
 
 const SignUp: NextPage = () => {
   const [capVal, setCapVal] = useState<string | null>(null);
+  const defaultValues: TSignUpSchema = {
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
   const form = useForm<TSignUpSchema>({
-    resolver: zodResolver(signUpSchema),
+    resolver: zodResolver(signUpSchema), defaultValues,
   });
-
+  const useSignUpHook = useSignUpWithEmailPassword;
+  
+  // const { user, setUser } = useContext(UserContext);
+    //   setUser({
+    //   id: user.id,
+    //   name: data.name,
+    //   email: data.email,
+    //   password: data.password,
+    //   // Dropzone, firestore, uoloadthing, cloudinary, whatever
+    //   avatar: '/assets/images/NoImage.jpg',
+    // });
   return (
     <>
       <AuthContainer
@@ -34,7 +50,7 @@ const SignUp: NextPage = () => {
         cardContent={
           <>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(signUpWithEmailPassword)} className="space-y-8">
+              <form onSubmit={form.handleSubmit(useSignUpHook)} className="space-y-8">
                 <FormField
                   control={form.control}
                   name={`email`}
@@ -77,14 +93,29 @@ const SignUp: NextPage = () => {
                 <ReCAPTCHA
                   className={`w-full flex items-center justify-center`}
                   sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                  onChange={(val: string | null) => {setCapVal(val)}}
+                  onChange={(val: string | null) => { setCapVal(val) }}
                 />
-                <FormButton
+                <CustomButton
                   className={`w-full`}
+                  onClick={() => {useSignUpHook}}
                   disabled={form.formState.isSubmitting && !capVal}
                 >
                   Sign Up
-                </FormButton>
+                </CustomButton>
+                <p
+                  className={`
+                    text-sm text-center text-primary
+                  `}
+                >
+                  Already have an account?{" "}
+                  <Link href="/login"
+                    className="text-blue-500 hover:text-blue-400 underline"
+                  >
+                    <>
+                      Login
+                    </>
+                  </Link>
+                </p>
               </form>
             </Form>
           </>

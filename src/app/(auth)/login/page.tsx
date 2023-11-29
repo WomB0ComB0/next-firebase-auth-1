@@ -16,18 +16,20 @@ import AuthContainer from "@/components/auth/AuthContainer"
 import { NextPage } from "next"
 import { TSignInSchema, signInSchema } from "@/lib/auth"
 
-import { onLogin, signInWithEmailPassword } from "@/utils"
+import { useSignInWithEmailPassword } from "@/utils"
 
 import ReCAPTCHA from 'react-google-recaptcha'
 import { CustomButton } from "@/components/custom/Button"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "@/contexts/UserContext"
+import Link from "next/link"
 
 const Login: NextPage = () => {
+  const { onLogin } = useContext(UserContext);
 const [capVal, setCapVal] = useState<string | null>(null);
   const form = useForm<TSignInSchema>({
     resolver: zodResolver(signInSchema),
   });
-
   return (
     <>
       <AuthContainer
@@ -36,7 +38,7 @@ const [capVal, setCapVal] = useState<string | null>(null);
         cardContent={
           <>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(signInWithEmailPassword)} className="space-y-8">
+              <form onSubmit={form.handleSubmit(useSignInWithEmailPassword)} className="space-y-8">
                 <FormField
                   control={form.control}
                   name={`email`}
@@ -70,11 +72,34 @@ const [capVal, setCapVal] = useState<string | null>(null);
                 />
                 <CustomButton
                   disabled={form.formState.isSubmitting && !capVal}
+                  onClick={() => {
+                    useSignInWithEmailPassword
+                  }}
+                  className={`w-full`}
+                >
+                  Login
+                </CustomButton>                
+                <CustomButton
+                  disabled={form.formState.isSubmitting && !capVal}
                   onClick={onLogin}
                   className={`w-full`}
                 >
                   Login with Google
                 </CustomButton>
+                <p
+                  className={`
+                    text-sm text-center text-primary
+                  `}
+                >
+                  Don&apos;t have an account?{" "}
+                  <Link href="/signup"
+                    className="text-blue-500 hover:text-blue-400 underline"
+                  >
+                    <>
+                      Sign Up
+                    </>
+                  </Link>
+                </p>
               </form>
             </Form>
           </>

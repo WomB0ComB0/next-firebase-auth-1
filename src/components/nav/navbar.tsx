@@ -8,6 +8,7 @@ import { UserAvatar } from "../auth/User";
 import { ModeToggle } from "../custom/ThemeButton";
 import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
+import { Hint } from "../custom/Hint";
 
 export const Navbar = () => {
   const { user } = useContext(UserContext);
@@ -15,7 +16,7 @@ export const Navbar = () => {
     <Nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm  flex items-center bg-background">
       <MobileSidebar />
       <Div className="flex items-center gap-x-4 justify-center">
-        <Div className="hidden md:flex">
+        <Div className="hidden md:flex items-center">
           <Logo ContainerClassName={`pr-2`} />
           <p
             className={`
@@ -27,12 +28,22 @@ export const Navbar = () => {
         </Div>
       </Div>
       <Div className="ml-auto flex items-center gap-x-2">
-        <ModeToggle />
-        { user ? (
-        <CustomPopover>
-          <UserAvatar />
-        </CustomPopover>
-        ) : (null) }
+        <Hint
+          description="Toggle theme"
+          sideOffset={10}
+        >
+          <ModeToggle />
+        </Hint>
+        {user.name !== '' ? (
+          <CustomPopover>
+            <Hint
+              description="User profile"
+              sideOffset={10}
+            >
+              <UserAvatar />
+            </Hint>
+          </CustomPopover>
+        ) : (null)}
       </Div>
     </Nav>
   );

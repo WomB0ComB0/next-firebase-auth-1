@@ -5,6 +5,7 @@ import { Logo } from '../logo'
 import { TypeScript } from '../typescipt'
 import { Next } from '../next'
 import { useRouter } from 'next/navigation'
+import { Hint } from '../custom/Hint'
 
 const Hero = () => {
   const components = [Logo, TypeScript, Next]
@@ -58,14 +59,14 @@ const Hero = () => {
               <Button
                 className={` 
                 font-bold
-                  text-2xl
-                  bg-orange-400
-                  text-secondary hover:bg-primary hover:text-orange-400
-                  h-14 w-40 rounded-md`}
+                text-2xl
+                bg-orange-400
+                text-secondary hover:bg-primary hover:text-orange-400
+                h-14 w-40 rounded-md`}
                 onClick={() => {
                   router.push('/signup')
                 }}
-              >
+                >
                 Sign up
               </Button>
             </li>

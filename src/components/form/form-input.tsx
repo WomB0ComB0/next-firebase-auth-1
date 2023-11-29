@@ -6,6 +6,7 @@ import { useFormStatus } from "react-dom";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Div } from "@/components/template/index";
 
 import { FormErrors } from "./form-errors";
 
@@ -37,8 +38,8 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
   const { pending } = useFormStatus();
 
   return (
-    <div className="space-y-2">
-      <div className="space-y-1">
+    <Div className="space-y-2">
+      <Div className="space-y-1">
         {label ? (
           <Label 
             htmlFor={id}
@@ -63,12 +64,12 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
           )}
           aria-describedby={`${id}-error`}
         />
-      </div>
+      </Div>
       <FormErrors
         id={id}
         errors={errors}
       />
-    </div>
+    </Div>
   )
 });
 

@@ -1,3 +1,4 @@
+"use client"
 import { PropsWithChildren, FC } from 'react'
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";

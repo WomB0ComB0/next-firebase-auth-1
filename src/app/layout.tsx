@@ -12,20 +12,19 @@ const DynamicTemplate = dynamic(() => import("@/components/effects/template"));
 export const metadata = constructMetadata();
 
 export default function RootLayout({ children }: PropsWithChildren) {
-
   return (
-    <html lang="en" suppressHydrationWarning data-a11y-animated-images="system" data-a11y-link-underlines="false" data-turbo-loaded>
+    <html lang="en" suppressHydrationWarning={true} data-a11y-animated-images="system" data-a11y-link-underlines="false" data-turbo-loaded>
       <body>
         <>
           <Providers>
             <DynamicTemplate>
-              <Layout>
-                <UserProvider>
-                  <ClientWrapper>
+              <UserProvider>
+                <ClientWrapper>
+                  <Layout>
                     {children}
-                  </ClientWrapper>
-                </UserProvider>
-              </Layout>
+                  </Layout>
+                </ClientWrapper>
+              </UserProvider>
             </DynamicTemplate>
           </Providers>
         </>
