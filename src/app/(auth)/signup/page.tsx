@@ -20,6 +20,7 @@ import { useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import Link from "next/link"
 import { CustomButton } from "@/components/custom/Button"
+import { useRouter } from 'next/navigation'
 
 const SignUp: NextPage = () => {
   const [capVal, setCapVal] = useState<string | null>(null);
@@ -32,6 +33,7 @@ const SignUp: NextPage = () => {
     resolver: zodResolver(signUpSchema), defaultValues,
   });
   const useSignUpHook = useSignUpWithEmailPassword;
+  const router = useRouter()
   
   // const { user, setUser } = useContext(UserContext);
     //   setUser({
@@ -97,7 +99,10 @@ const SignUp: NextPage = () => {
                 />
                 <CustomButton
                   className={`w-full`}
-                  onClick={() => {useSignUpHook}}
+                  onClick={() => {
+                    useSignUpHook
+                    router.push('/login')
+                  }}
                   disabled={form.formState.isSubmitting && !capVal}
                 >
                   Sign Up

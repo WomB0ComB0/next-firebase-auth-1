@@ -23,6 +23,7 @@ import { CustomButton } from "@/components/custom/Button"
 import { useContext, useState } from "react"
 import { UserContext } from "@/contexts/UserContext"
 import Link from "next/link"
+import { useRouter } from  'next/navigation'
 
 const Login: NextPage = () => {
   const { onLogin } = useContext(UserContext);
@@ -30,6 +31,7 @@ const [capVal, setCapVal] = useState<string | null>(null);
   const form = useForm<TSignInSchema>({
     resolver: zodResolver(signInSchema),
   });
+  const router = useRouter()
   return (
     <>
       <AuthContainer
@@ -74,6 +76,7 @@ const [capVal, setCapVal] = useState<string | null>(null);
                   disabled={form.formState.isSubmitting && !capVal}
                   onClick={() => {
                     useSignInWithEmailPassword
+                    router.push('/')
                   }}
                   className={`w-full`}
                 >
