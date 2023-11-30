@@ -31,4 +31,4 @@ Any questions feel free to contact me on [Twitter](https://twitter.com/OdnisMike
 
 ## Common errors
 
-![Image](/.github/iamges/Error1.png)
+![Image](/.github/images/Error1.png)
