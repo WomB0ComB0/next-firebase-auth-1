@@ -4,7 +4,7 @@ With Firebase Authentication and Hosting.
 
 ## Getting Started
 
-[Video Link](https://chat.google.com/dm/jf798wAAAAE/N9VpT3iZsaM/N9VpT3iZsaM?cls=10)
+[Video Link](https://drive.google.com/file/d/1SXjVVJVEZYXRSfESFLGWitc74i83vNLP/view?usp=sharing)
 
 create a folder called "out" within the root of your directory
 
