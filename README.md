@@ -29,3 +29,6 @@ firebase deploy
 
 Any questions feel free to contact me on [Twitter](https://twitter.com/OdnisMike) or [LinkedIn](https://www.linkedin.com/in/mikeodnis/)
 
+## Common errors
+
+![Image](/.github/iamges/Error1.png)
