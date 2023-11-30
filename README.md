@@ -4,6 +4,8 @@ With Firebase Authentication and Hosting.
 
 ## Getting Started
 
+[Video Link](https://chat.google.com/dm/jf798wAAAAE/N9VpT3iZsaM/N9VpT3iZsaM?cls=10)
+
 create a folder called "out" within the root of your directory
 
 ```bash
