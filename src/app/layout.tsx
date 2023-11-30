@@ -6,7 +6,7 @@ import Layout from "@/layout/Layout";
 import './globals.css';
 import Providers from "@/provider/Providers";
 import dynamic from 'next/dynamic';
-const DynamicTemplate = dynamic(() => import("@/components/effects/template"));
+export const DynamicTemplate = dynamic(() => import("@/components/effects/template"));
 // , { ssr: false }
 
 export const metadata = constructMetadata();
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body>
         <>
           <Providers>
-            <DynamicTemplate>
+            <>
               <UserProvider>
                 <ClientWrapper>
                   <Layout>
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   </Layout>
                 </ClientWrapper>
               </UserProvider>
-            </DynamicTemplate>
+            </>
           </Providers>
         </>
       </body>

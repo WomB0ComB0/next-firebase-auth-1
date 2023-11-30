@@ -1,11 +1,11 @@
 "use client";
-import { MotionDiv } from "@/components/constants/Motion";
+import { MotionDiv, MotionSection } from "@/components/constants/Motion";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const variants = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
+  hidden: { opacity: 0, y: 0 },
+  enter: { opacity: 1, y: 0 },
 };
 
 const transition = { duration: 0.6, ease: "easeInOut" };
@@ -36,7 +36,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   return (
     <AnimatePresence key={`wait`}>
-      <MotionDiv
+      <MotionSection
         variants={variants}
         initial="hidden"
         animate="enter"
@@ -44,22 +44,24 @@ export default function Template({ children }: { children: React.ReactNode }) {
         key={pathname}
         style={{
           position: "fixed",
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          height: 'fit-content',
         }}
       >
-        <MotionDiv
+        <MotionSection
           style={{ position: "fixed", top: 0, bottom: 0, left: 0, right: 0, zIndex: 1 }}
           variants={blurVariants}
           initial="hidden"
           animate="enter"
+          className={`
+            backdrop-filter backdrop-blur h-[90dvh] flex items-center justify-center
+          `}
         >
           {children}
-        </MotionDiv>
-      </MotionDiv>
+        </MotionSection>
+      </MotionSection>
     </AnimatePresence>
   );
 }
+

@@ -74,6 +74,14 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .body-text {
+    @apply text-[16px] leading-[22px] font-normal;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
 }
 
 ::-webkit-scrollbar {

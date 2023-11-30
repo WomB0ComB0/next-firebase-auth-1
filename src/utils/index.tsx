@@ -9,7 +9,6 @@ export const useSignUpWithEmailPassword = async (data: TSignUpSchema) => {
     await createUserWithEmailAndPassword(auth, data.email, data.password);
     toast.success("Signed up successfully! 🎉");
   } catch (error: any) {
-    console.error(error);
     toast.error(`Sign-up error: ${error.message || new Error}`);
   }
 };
@@ -17,10 +16,8 @@ export const useSignUpWithEmailPassword = async (data: TSignUpSchema) => {
 export const useSignInWithEmailPassword = async (data: TSignInSchema) => {
   try {
     await signInWithEmailAndPassword(auth, data.email, data.password);
-    console.log(data);
     toast.success("Logged in successfully! 🎉");
   } catch (error: any) {
-    console.error(error);
     toast.error(`Sign-in error: ${error.message || new Error}`);
   }
 };

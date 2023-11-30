@@ -44,7 +44,6 @@ export default function UserProvider({ children }: UserProviderProps) {
     } catch (error) {
 
       toast.error("An unexpected error occurred during login");
-      console.error(error);
     }
   };
 

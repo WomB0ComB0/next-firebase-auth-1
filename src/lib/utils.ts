@@ -1,14 +1,15 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { Metadata } from "next"
+import { siteConfig } from "@/config/site"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 export function constructMetadata({
-  title = "next-firebase",
-  description = "Next.js + Firebase starter kit",
-  image = '/thumbnail.png',
+  title = siteConfig.name,
+  description = siteConfig.description,
+  image = '/assets/images/og.png',
   icons = '/assets/svgs/logo.svg',
   noIndex = false,
 }: {
