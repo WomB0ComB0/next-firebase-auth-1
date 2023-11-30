@@ -25,7 +25,7 @@ const ClientWrapper: FC<PropsWithChildren> = ({children}) => {
     });
   }, [setUser])
   return (
-    <div>
+    <div className={`h-full flex justify-center items-center flex-col`}>
       {children}
     </div>
   )

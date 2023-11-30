@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react';
 import ClientWrapper from "@/components/wrapper/ClientWrapper";
 import UserProvider from "@/contexts/UserContext";
 import { constructMetadata } from '@/lib/utils';
@@ -14,16 +14,16 @@ export const metadata = constructMetadata();
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" suppressHydrationWarning={true} data-a11y-animated-images="system" data-a11y-link-underlines="false" data-turbo-loaded>
-      <body>
+      <body className={``}>
         <>
           <Providers>
             <>
               <UserProvider>
-                <ClientWrapper>
                   <Layout>
+                <ClientWrapper>
                     {children}
-                  </Layout>
                 </ClientWrapper>
+                  </Layout>
               </UserProvider>
             </>
           </Providers>

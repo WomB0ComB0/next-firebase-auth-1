@@ -12,7 +12,7 @@ const Loading: NextPage = () => (
         `}
       >
         <Image
-          className="absolute mt-2 transition-all select-none animate-pulse h-52 w-52"
+          className="absolute mt-2 transition-all select-none animate-pulse h-52 w-52 rounded-full"
           src="/assets/images/logo.png"
           alt="Loading..."
           loading="eager"

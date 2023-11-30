@@ -47,6 +47,7 @@ export function constructMetadata({
         href: icons,
       }
     ],
+    manifest: '/pwa/manifest.json',
     metadataBase: new URL('https://www.auth-test-37db9.web.app'),
     ...(noIndex && {
       robots: {

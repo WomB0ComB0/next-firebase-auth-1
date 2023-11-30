@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <Foot
       className={`
-        fixed bottom-0 w-full
+        bottom-0 w-full 
       `}
     >
       <div className="flex flex-col items-center justify-center w-full">

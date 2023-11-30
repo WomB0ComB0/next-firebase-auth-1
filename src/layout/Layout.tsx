@@ -9,7 +9,7 @@ const Layout: React.FC<PropsWithChildren> = ({children}) => {
       
       <Main className={`
         flex flex-col items-center justify-center
-        w-full h-fit
+        w-full h-fit my-auto
       `}>
         {children}
       </Main>

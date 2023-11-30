@@ -1,7 +1,7 @@
 "use client";
 import { MotionDiv, MotionSection } from "@/components/constants/Motion";
 import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 
 const variants = {
   hidden: { opacity: 0, y: 0 },
